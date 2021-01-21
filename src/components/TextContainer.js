@@ -4,8 +4,9 @@ export default class TextContainer extends Component {
   constructor() {
     super();
     this.state = {
-      text: '',
+      text: ''
     };
+    this.updateText = this.updateText.bind(this);
   }
 
   updateText(e) {
@@ -15,10 +16,15 @@ export default class TextContainer extends Component {
   }
 
   render() {
+    const {fontColor, fontFamily, fontSize} = this.props
     return (
       <div className="textContainer">
         <textarea
-          // style={  }
+          style={ {
+            color: fontColor,
+            fontFamily: fontFamily,
+            fontSize: fontSize
+          } }
           onChange={this.updateText}
           value={this.state.text}
           placeholder="Start typing your thoughts here!"
